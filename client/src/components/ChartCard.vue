@@ -1,46 +1,32 @@
 <template>
-  <h1>Hello</h1>
+  <div id="chart-card">
+    <canvas id="chart"></canvas>
+  </div>
 </template>
 
 <script>
+import Chart from "chart.js";
+import planetChartData from "./chartData.js";
+
 export default {
-  name: "WeatherCard",
-  props: {
-    msg: String
-  },
+  name: "ChartCard",
   methods: {
-    getReq() {
-      const url =
-        "http://localhost:5000/api/data";
-
-      const http = require("http");
-      let values = [];
-
-      http
-        .get(url, resp => {
-          let data = "";
-
-          resp.on("data", chunk => {
-            data += chunk;
-            console.log(data)
-          });
-
-          resp.on("end", () => {
-            data = JSON.parse(data);
-
-            data.forEach(el => {
-              values[el] = el;
-              console.log(values)
-            });
-          });
-        })
-        .on("error", err => {
-          console.log("Error: " + err.message);
-        });
-    }
+    createChart(chartId, chartData) {
+      const ctx = document.getElementById(chartId);
+      const myChart = new Chart(ctx, {
+        type: chartData.type,
+        data: chartData.data,
+        options: chartData.options
+      });
+    },
   },
-  created() {
-    this.getReq();
+    data() {
+      return {
+        planetChartData: planetChartData
+      };
+    },
+  mounted() {
+    this.createChart("chart", this.planetChartData);
   }
 };
 </script>

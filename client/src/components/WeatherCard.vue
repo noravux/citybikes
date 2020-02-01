@@ -37,7 +37,6 @@ export default {
         console.log(res.data.list);
       });
     },
-
     setWeatherData(data) {
       this.weatherData = data;
     }
