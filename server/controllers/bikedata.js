@@ -79,3 +79,18 @@ exports.getDates = async (req, res, next) => {
     });
   }
 };
+exports.getAllRentals = async (req, res, next) => {
+  try {
+    const data = await Bike.find({}, 'Rental');
+    return res.status(200).json({
+      success: true,
+      count: data.length,
+      data: data
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      error: 'Error at server'
+    });
+  }
+};
