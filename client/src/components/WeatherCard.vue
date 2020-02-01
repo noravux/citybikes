@@ -1,5 +1,10 @@
 <template>
-  <h1>Hello</h1>
+  <div>
+    <div v-bind:key="city.id" v-for="(city, index) in weatherData">
+      <h1>{{ weatherData[index].main.temp }}</h1>
+      <img src="" alt="" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -7,41 +12,30 @@ import WeatherValues from '../../../server/weathervalues';
 
 export default {
   name: 'WeatherCard',
-  props: {
-    msg: String
+  props: {},
+
+  data() {
+    return {
+      weatherData: undefined
+    };
   },
   methods: {
-    getReq() {
-      const url =
-        'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3';
+    getWeather() {
+      let url =
+        'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13';
 
-      const https = require('https');
+      this.$http.get(url).then(res => {
+        this.setWeatherData(res.data.list);
+        console.log(this.weatherData);
+      });
+    },
 
-      https
-        .get(url, resp => {
-          let data = '';
-
-          resp.on('data', chunk => {
-            data += chunk;
-          });
-
-          resp.on('end', () => {
-            data = JSON.parse(data);
-
-            var list = data.list;
-
-            list.forEach(element => {
-              console.log(element);
-            });
-          });
-        })
-        .on('error', err => {
-          console.log('Error: ' + err.message);
-        });
+    setWeatherData(data) {
+      this.weatherData = data;
     }
   },
   created() {
-    this.getReq();
+    this.getWeather();
   }
 };
 </script>

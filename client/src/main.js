@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App';
-
+import axios from 'axios';
 // Vue Bootstrap
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -27,6 +27,7 @@ Icon.Default.mergeOptions({
 });
 
 Vue.config.productionTip = false;
+Vue.prototype.$http = axios;
 
 new Vue({
   render: h => h(App)

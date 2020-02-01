@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <WeatherCard msg="Welcome to Your Vue.js App" />
+    <WeatherCard />
   </div>
 </template>
 
