@@ -1,9 +1,18 @@
 <template>
-  <div>
-    <div v-bind:key="city.id" v-for="(city, index) in weatherData">
-      <h1>{{ weatherData[index].main.temp }}</h1>
-      <img src="" alt="" />
-    </div>
+  <div class="row">
+    <b-card v-bind:key="city.id" v-for="(city, index) in weatherData">
+      <b-card-text>
+        <h3>{{ moment(weatherData[index].dt_txt).format('HH:mm') }}</h3>
+        <h4>{{ weatherData[index].main.temp }}&#176;C</h4>
+      </b-card-text>
+      <img
+        v-bind:src="
+          'http://openweathermap.org/img/w/' +
+            weatherData[index].weather[0].icon +
+            '.png'
+        "
+      />
+    </b-card>
   </div>
 </template>
 
@@ -26,7 +35,7 @@ export default {
 
       this.$http.get(url).then(res => {
         this.setWeatherData(res.data.list);
-        console.log(this.weatherData);
+        console.log(res.data.list);
       });
     },
 
