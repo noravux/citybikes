@@ -6,6 +6,8 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import moment from 'moment';
+
 // Leaflet
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 import { Icon } from 'leaflet';
@@ -28,6 +30,7 @@ Icon.Default.mergeOptions({
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
+Vue.prototype.moment = moment;
 
 new Vue({
   render: h => h(App)
