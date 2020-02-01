@@ -23,19 +23,32 @@ export default {
     this.fillData();
   },
   methods: {
+    getWeather() {
+      let table;
+      let url =
+        "https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13";
+
+      this.$http.get(url).then(res => {
+        table.push(res.data.list);
+      });
+      return table;
+    },
     fillData() {
+      data = this.getWeather()
+      console.log(data)
+      var lapel = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       this.datacollection = {
-        labels: [this.getRandomInt(), this.getRandomInt()],
+        labels: lapel,
         datasets: [
           {
             label: "Data One",
             backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
+            data: data
           },
           {
             label: "Data One",
             backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
+            data: data
           }
         ]
       };
