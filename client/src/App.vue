@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <NavBar />
-    <b-container fluid>
-      <!--<WeatherCard msg="Welcome to Your Vue.js App" />-->
+    <b-container fluid="lg" mx-auto>
+      <WeatherCard msg="Welcome to Your Vue.js App" />
       <Charttipaska />
     </b-container>
   </div>

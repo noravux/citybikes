@@ -1,10 +1,13 @@
 <template>
-  <apexchart
-    width="50%"
-    type="line"
-    :options="chartOptions"
-    :series="series"
-  ></apexchart>
+  <div class="text-center">
+    <h1>Sää ja lainausmäärä</h1>
+    <apexchart
+      width="100%"
+      type="line"
+      :options="chartOptions"
+      :series="series"
+    ></apexchart>
+  </div>
 </template>
 <script>
 export default {
