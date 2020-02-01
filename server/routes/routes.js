@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getBikes } = require('../controllers/bikedata');
-const { getDailyRentals } = require('../controllers/dailyrentals');
+const { getBikes, getSingleBike } = require('../controllers/bikedata');
 
 router.route('/').get(getBikes);
-router.route('/bikes').get(getDailyRentals);
+router.route('/bike').get(getSingleBike);
 
 module.exports = router;
