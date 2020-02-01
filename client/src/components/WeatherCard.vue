@@ -13,10 +13,20 @@
         "
       />
     </b-card>
+
+    <div id="chart">
+      <apexchart
+        type="line"
+        height="350"
+        :options="chartOptions"
+        :series="series"
+      ></apexchart>
+    </div>
   </div>
 </template>
 
 <script>
+import ApexCharts from 'apexcharts';
 import WeatherValues from '../../../server/weathervalues';
 
 export default {
@@ -28,6 +38,7 @@ export default {
       weatherData: undefined
     };
   },
+
   methods: {
     getWeather() {
       let url =
