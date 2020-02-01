@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <apexchart
-      width="500"
-      type="line"
-      :options="chartOptions"
-      :series="series"
-    ></apexchart>
-  </div>
+  <apexchart
+    width="100%"
+    type="line"
+    :options="chartOptions"
+    :series="series"
+  ></apexchart>
 </template>
 <script>
 export default {
@@ -17,48 +15,51 @@ export default {
           id: 'vuechart-example'
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+          type: 'category',
+          categories: []
         }
       },
-      weatherData: undefined,
       tempData: [],
+      dateData: [],
       series: []
     };
   },
 
   methods: {
-    getWeather() {
+    getDates() {
       //let tempData = [];
-      let url =
-        'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13';
-
+      let url = 'http://localhost:5000/api/data/dates';
       this.$http.get(url).then(res => {
-        this.setWeatherData(res.data.list);
-
-        for (let i = 0; i < this.weatherData.length; i++) {
-          console.log(this.weatherData[i].main.temp);
-          this.tempData.push(this.weatherData[i].main.temp);
-        }
+        res.data.data.forEach(element => {
+          this.dateData.push(element.Date);
+        });
       });
-
-      this.series = [
-        {
-          name: 'series-1',
-          data: this.tempData
-        },
-        {
-          name: 'series-2',
-          data: [5, 6, 7, 2, 6, 1, 5, 1, 23]
-        }
-      ];
     },
-    setWeatherData(data) {
-      this.weatherData = data;
+    getTemps() {
+      //let tempData = [];
+      let url = 'http://localhost:5000/api/data/temperature';
+      this.$http.get(url).then(res => {
+        console.log(res.data.data.length);
+
+        res.data.data.forEach(element => {
+          this.tempData.push(element.Temperature);
+          console.log(element.Temperature);
+        });
+        console.log(this.dateData);
+
+        this.series = [
+          {
+            name: 'Lämpötila',
+            data: this.tempData
+          }
+        ];
+      });
     }
   },
 
   created() {
-    this.getWeather();
+    this.getDates();
+    this.getTemps();
   }
 };
 </script>
