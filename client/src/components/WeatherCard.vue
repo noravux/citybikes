@@ -1,47 +1,41 @@
 <template>
-  <h1>Hello</h1>
+  <div>
+    <div v-bind:key="city.id" v-for="(city, index) in weatherData">
+      <h1>{{ weatherData[index].main.temp }}</h1>
+      <img src="" alt="" />
+    </div>
+  </div>
 </template>
 
 <script>
 import WeatherValues from '../../../server/weathervalues';
 
 export default {
-  // name: 'WeatherCard',
-  // props: {
-  //   msg: String
-  // },
-  // methods: {
-  //   getReq() {
-  //     const url =
-  //       'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3';
+  name: 'WeatherCard',
+  props: {},
 
-  //     const https = require('https');
+  data() {
+    return {
+      weatherData: undefined
+    };
+  },
+  methods: {
+    getWeather() {
+      let url =
+        'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13';
 
-  //     https
-  //       .get(url, resp => {
-  //         let data = '';
+      this.$http.get(url).then(res => {
+        this.setWeatherData(res.data.list);
+        console.log(this.weatherData);
+      });
+    },
 
-  //         resp.on('data', chunk => {
-  //           data += chunk;
-  //         });
-
-  //         resp.on('end', () => {
-  //           data = JSON.parse(data);
-
-  //           var list = data.list;
-
-  //           list.forEach(element => {
-  //             console.log(element);
-  //           });
-  //         });
-  //       })
-  //       .on('error', err => {
-  //         console.log('Error: ' + err.message);
-  //       });
-  //   }
-  // },
-  // created() {
-  //   this.getReq();
-  // }
+    setWeatherData(data) {
+      this.weatherData = data;
+    }
+  },
+  created() {
+    this.getWeather();
+  }
 };
 </script>
