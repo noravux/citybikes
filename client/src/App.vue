@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <WeatherCard msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WeatherCard from './components/WeatherCard.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    WeatherCard
   }
-}
+};
 </script>
 
 <style>
