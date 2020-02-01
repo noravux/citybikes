@@ -1,7 +1,7 @@
 <template>
   <div id="chart-card">
     <div class="small">
-      <line-chart :chart-data="datacollection"></line-chart>
+      <line-chart :chart-data="datacollection" chart:update></line-chart>
       <button @click="fillData()">Randomize</button>
     </div>
   </div>
@@ -14,9 +14,15 @@ export default {
   components: {
     LineChart
   },
+  watch: {
+    chartData() {
+      this.$data._chart.update();
+    }
+  },
   data() {
     return {
-      datacollection: null
+      weatherData: undefined,
+      tempData: []
     };
   },
   mounted() {
@@ -24,18 +30,27 @@ export default {
   },
   methods: {
     getWeather() {
-      let table;
+      //let tempData = [];
       let url =
         "https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13";
 
       this.$http.get(url).then(res => {
-        table.push(res.data.list);
+        this.setWeatherData(res.data.list);
+
+        for (let i = 0; i < this.weatherData.length; i++) {
+          console.log(this.weatherData[i].main.temp);
+          this.tempData.push(this.weatherData[i].main.temp);
+        }
+
+        console.log("Tempdata: " + this.tempData);
       });
-      return table;
+    },
+    setWeatherData(data) {
+      this.weatherData = data;
     },
     fillData() {
-      data = this.getWeather()
-      console.log(data)
+      data = this.getWeather();
+      console.log(data);
       var lapel = [1, 2, 3, 4, 5, 6, 7, 8, 9];
       this.datacollection = {
         labels: lapel,
@@ -43,7 +58,7 @@ export default {
           {
             label: "Data One",
             backgroundColor: "#f87979",
-            data: data
+            data: this.tempData
           },
           {
             label: "Data One",
@@ -52,9 +67,6 @@ export default {
           }
         ]
       };
-    },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   }
 };
