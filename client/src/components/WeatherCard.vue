@@ -1,10 +1,93 @@
 <template>
-  <div class="row">
+  <b-container>
     <div class="col">
       <div class="row">
-        <h2>Arvioidut pyörävuokraukset</h2>
+        <b-card
+          title="1.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/sunny.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>27C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="2.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/sunny.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>23C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="3.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/overcast.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>19C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="4.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/rainy.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>10C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="5.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/overcast.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>23C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="6.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/sunny.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>27C</p>
+          </b-card-text>
+        </b-card>
+        <b-card
+          title="7.5.2020"
+          img-top
+          tag="article"
+          style="max-width: 9rem;"
+          class="mb-3 text-center"
+        >
+          <img src="../assets/rainy.svg" alt="" width="25%" />
+          <b-card-text>
+            <p>7C</p>
+          </b-card-text>
+        </b-card>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <p>{{ 'MA - ' + hcRentals[0] + '__' }}</p>
         <p>{{ 'TI - ' + hcRentals[1] + '__' }}</p>
         <p>{{ 'KE - ' + hcRentals[2] + '__' }}</p>
@@ -12,10 +95,9 @@
         <p>{{ 'PE - ' + hcRentals[4] + '__' }}</p>
         <p>{{ 'LA - ' + hcRentals[5] + '__' }}</p>
         <p>{{ 'SU - ' + hcRentals[6] + '__' }}</p>
-      </div>
+      </div>-->
     </div>
-    <b-card> </b-card>
-  </div>
+  </b-container>
 </template>
 
 <script>
