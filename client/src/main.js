@@ -1,20 +1,18 @@
 import Vue from 'vue';
 import App from './App';
 import axios from 'axios';
-import * as VueGoogleMaps from 'vue2-google-maps';
+
 // Vue Bootstrap
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import VueGoogleHeatmap from 'vue-google-heatmap';
-import router from "./router";
-
+import router from './router';
 
 import moment from 'moment';
 
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
-
 
 Vue.use(VueGoogleHeatmap, {
   apiKey: 'AIzaSyBGOXlzYR6JmeSTLKkn0iXwoMugtl4OeJQ'
