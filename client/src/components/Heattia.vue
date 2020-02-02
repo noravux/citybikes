@@ -1,7 +1,7 @@
 <template>
   <b-container fluid class="text-center">
     <h1>Kesä 2019</h1>
-    <h2>Heatmap - pysäköintidata</h2>
+    <h2 class="mb-3">Heatmap - pysäköintidata</h2>
     <vue-google-heatmap
       :lat="62.88598833"
       :lng="27.66641"

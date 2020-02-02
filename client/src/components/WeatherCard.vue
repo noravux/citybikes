@@ -1,7 +1,7 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <div class="col">
-      <div class="row">
+      <div class="row" style="margin: 0 auto;">
         <b-card
           title="1.5.2020"
           img-top
