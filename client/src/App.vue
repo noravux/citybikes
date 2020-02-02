@@ -5,6 +5,8 @@
       <WeatherCard msg="Welcome to Your Vue.js App" />
       <Charttipaska />
     </b-container>
+
+    <Heattia />
   </div>
 </template>
 
@@ -12,13 +14,17 @@
 import WeatherCard from './components/WeatherCard.vue';
 import NavBar from './components/base/NavBar.vue';
 import Charttipaska from './components/Charttipaska.vue';
+import HeatMap from './components/HeatMap.vue';
+import Heattia from './components/Heattia';
 
 export default {
   name: 'app',
   components: {
     WeatherCard,
     NavBar,
-    Charttipaska
+    Charttipaska,
+    HeatMap,
+    Heattia
   }
 };
 </script>
