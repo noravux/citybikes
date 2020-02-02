@@ -94,7 +94,7 @@ export default {
       this.rentalData.forEach((el, i) => {
         asd = (this.rentalData[i] + this.tempData[i]) / 2;
 
-        console.log(asd);
+        //console.log(asd);
       });
     }
   },
