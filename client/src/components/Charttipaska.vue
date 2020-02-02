@@ -187,13 +187,13 @@ export default {
         yaxis: [
           {
             title: {
-              text: "Vuokramäärä"
+              text: "Lämpötila"
             }
           },
           {
             opposite: true,
             title: {
-              text: "Lämpötila"
+              text: "Vuokramäärä"
             }
           }
         ]
