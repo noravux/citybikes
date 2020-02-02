@@ -3,7 +3,6 @@
     <NavBar />
 
     <router-view></router-view>
-    <WeatherCard />
   </div>
 </template>
 
