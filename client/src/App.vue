@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <NavBar />
-    <b-container fluid="lg" mx-auto>
+    <!-- <b-container fluid="lg" mx-auto>
       <WeatherCard msg="Welcome to Your Vue.js App" />
       <Charttipaska />
     </b-container>
 
-    <Heattia />
+    <Heattia /> -->
+    <router-view></router-view>
   </div>
 </template>
 
