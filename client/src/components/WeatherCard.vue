@@ -5,21 +5,22 @@
         <h2>Arvioidut pyörävuokraukset</h2>
       </div>
       <div class="row">
-        <p>{{"MA - " + hcRentals[0] + "__"}}</p>
-        <p>{{"TI - " + hcRentals[1] + "__"}}</p>
-        <p>{{"KE - " + hcRentals[2] + "__"}}</p>
-        <p>{{"TO - " + hcRentals[3] + "__"}}</p>
-        <p>{{"PE - " + hcRentals[4] + "__"}}</p>
-        <p>{{"LA - " + hcRentals[5] + "__"}}</p>
-        <p>{{"SU - " + hcRentals[6] + "__"}}</p>
+        <p>{{ 'MA - ' + hcRentals[0] + '__' }}</p>
+        <p>{{ 'TI - ' + hcRentals[1] + '__' }}</p>
+        <p>{{ 'KE - ' + hcRentals[2] + '__' }}</p>
+        <p>{{ 'TO - ' + hcRentals[3] + '__' }}</p>
+        <p>{{ 'PE - ' + hcRentals[4] + '__' }}</p>
+        <p>{{ 'LA - ' + hcRentals[5] + '__' }}</p>
+        <p>{{ 'SU - ' + hcRentals[6] + '__' }}</p>
       </div>
     </div>
+    <b-card> </b-card>
   </div>
 </template>
 
 <script>
 export default {
-  name: "WeatherCard",
+  name: 'WeatherCard',
   props: {},
 
   data() {
