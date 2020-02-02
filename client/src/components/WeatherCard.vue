@@ -1,18 +1,6 @@
 <template>
   <div class="row">
-    <b-card v-bind:key="city.id" v-for="(city, index) in weatherData">
-      <b-card-text>
-        <h3>{{ moment(weatherData[index].dt_txt).format('HH:mm') }}</h3>
-        <h4>{{ weatherData[index].main.temp }}&#176;C</h4>
-      </b-card-text>
-      <img
-        v-bind:src="
-          'http://openweathermap.org/img/w/' +
-            weatherData[index].weather[0].icon +
-            '.png'
-        "
-      />
-    </b-card>
+    <h1>{{}}</h1>
   </div>
 </template>
 
@@ -24,33 +12,23 @@ export default {
   data() {
     return {
       weatherData: undefined,
-      tempData: []
+      tempData: [],
+      hcTemperatures: [29,15,9,17,34],
+      hcRentals: []
     };
   },
 
   methods: {
-    getWeather() {
-      //let tempData = [];
-      let url =
-        'https://api.openweathermap.org/data/2.5/forecast?id=650225&units=metric&appid=b448f0bf7189a64a46433a7b955951b3&cnt=13';
-
-      this.$http.get(url).then(res => {
-        this.setWeatherData(res.data.list);
-
-        for (let i = 0; i < this.weatherData.length; i++) {
-          console.log(this.weatherData[i].main.temp);
-          this.tempData.push(this.weatherData[i].main.temp);
-        }
-
-        console.log('Tempdata: ' + this.tempData);
+    calculateRentals(temps, rentals) {
+      temps.forEach((el,i) => {
+        rentals = el * 2
+        console.log(rentals)
       });
-    },
-    setWeatherData(data) {
-      this.weatherData = data;
     }
   },
   created() {
-    this.getWeather();
+    this.calculateRentals(this.hcTemperatures, this.hcRentals);
+    console.log("created")
   }
 };
 </script>
