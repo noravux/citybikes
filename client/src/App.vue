@@ -5,10 +5,6 @@
       <p>Sivulla voi seurata Kuopion alueen sähköpyörien käyttöä. Sivu arvioi myös tulevaa sähköpyörien tarvetta ennustettujen sääolosuhteiden pohjalta. Tarvittavien pyörien määrä on mahdollista ennustaa viiden päivän päähän.</p>
     </div>
     <router-view></router-view>
-    <div class="text-center">
-        <h2>Sää</h2>
-    </div>
-    <WeatherCard />
   </div>
 </template>
 

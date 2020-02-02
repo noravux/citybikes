@@ -1,6 +1,9 @@
 <template>
   <b-container>
     <ChartComponent />
+        <div class="text-center">
+        <h2>Sää</h2>
+    </div>
     <WeatherCard />
   </b-container>
 </template>

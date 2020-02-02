@@ -8,6 +8,7 @@
       :points="points"
       :height="500"
     />
+    <div style="height: 50px"></div>
   </b-container>
 </template>
 
