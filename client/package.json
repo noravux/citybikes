@@ -17,7 +17,7 @@
     "core-js": "^3.4.4",
     "google-maps-api-loader": "^1.1.1",
     "leaflet": "^1.6.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.2",
     "vue-chartjs": "^3.5.0",
